@@ -11,6 +11,6 @@ city = cityname.replace(' ','+')
 
 r = requests.get("http://www.autotrader.com/cars-for-sale/New+Cars/"+make+"/"+carmodel+"/"+city+"+"+state+"-"+zipcode+"?endYear=2015&listingType=new&listingTypes=new&searchRadius=100")
 soup = bs4.BeautifulSoup(r.text)
-location = soup.html.body.findAll('ul',{'class':'price-range-list'})
-for i in location:
+priceRange = soup.html.body.findAll('ul',{'class':'price-range-list'})
+for i in priceRange:
     print(i.text)
