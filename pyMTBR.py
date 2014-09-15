@@ -1,4 +1,4 @@
-from bs4 import BeautifulSoup 
+from bs4 import BeautifulSoup
 import requests
 import webbrowser
 new = 2
@@ -24,6 +24,9 @@ for i in thread:
 		break
 
 print ""
-userinput = input(str("Enter a Number for the item above: "))
-choice = int(userinput)
-webbrowser.open(linkval[choice-1],new=new)
+userinput = raw_input("Enter a Number for the item above: ")
+if userinput == "none":
+	print("Goodbye")
+else:
+	choice = int(userinput)
+	webbrowser.open(linkval[choice-1],new=new)
