@@ -1,4 +1,4 @@
-import bs4
+import BeautifulSoup
 import requests
 import webbrowser
 
@@ -14,7 +14,7 @@ carmodel = model.replace(' ','+')
 url = "http://www.autotrader.com/cars-for-sale/New+Cars/"+make+"/"+carmodel+"/"+city+"+"+state+"-"+zipcode+"?endYear=2015&listingType=new&listingTypes=new&searchRadius=100"
 
 r = requests.get(url)
-soup = bs4.BeautifulSoup(r.text)
+soup = BeautifulSoup.BeautifulSoup(r.text)
 priceRange = soup.html.body.findAll('ul',{'class':'price-range-list'})
 for i in priceRange:
     print(i.text)
